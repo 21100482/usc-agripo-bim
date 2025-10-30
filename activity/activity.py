@@ -2,6 +2,10 @@ import ifcopenshell
 ifc_file = ifcopenshell.open("AC20-FZK-Haus.ifc")
 print("IFC file loaded:", ifc_file.schema)
 
+project = ifc_file.by_type("IfcProject")[0]
+print("Project Name:", project.Name)
+print()
+
 stairs = ifc_file.by_type("IFCStair")
 print(f"Number of stairs: {len(stairs)}")
 for stair in stairs:
